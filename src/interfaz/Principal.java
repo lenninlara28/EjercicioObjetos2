@@ -5,7 +5,9 @@
  */
 package interfaz;
 
+import clases.DenominadorCeroException;
 import clases.NumeroMixto;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -151,7 +153,7 @@ public class Principal extends javax.swing.JFrame {
     parte_entera2=Integer.parseInt(txtParte_Entera2.getText());
     num2=Integer.parseInt(txtNumerador2.getText());
     den2=Integer.parseInt(txtDenominador2.getText());
-    
+    try{
     mx1= new NumeroMixto(parte_entera1, num1, den1);
     mx2= new NumeroMixto(parte_entera2, num2, den2);
     
@@ -172,22 +174,24 @@ public class Principal extends javax.swing.JFrame {
     txtParte_Entera3.setText(""+mx3.getParte_Entera());
     txtNumerador3.setText(""+mx3.getNumerador());
     txtDenominador3.setText(""+mx3.getDenominador());
-    
-    
-    
-    
+    }catch(DenominadorCeroException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_cmdCalcularActionPerformed
-
     private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
      int parte_entera,num_fraccion,den_Fraccion;
      NumeroMixto mx1,f;
      parte_entera=Integer.parseInt(txtParte_Entera3.getText());
      num_fraccion=Integer.parseInt(txtNumerador3.getText());
      den_Fraccion=Integer.parseInt(txtDenominador3.getText());
+     try{
      mx1= new NumeroMixto(parte_entera,num_fraccion, den_Fraccion);
      f=mx1.Convertir(mx1);
      txtNumeradorFraccion.setText(""+f.getNumerador());
      txtDenominadorFranccion.setText(""+f.getDenominador());
+     }catch(DenominadorCeroException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
