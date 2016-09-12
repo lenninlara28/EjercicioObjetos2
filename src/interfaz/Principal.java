@@ -7,6 +7,7 @@ package interfaz;
 
 import clases.DenominadorCeroException;
 import clases.NumeroMixto;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,6 +65,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Operaciones Con Numeros Mixtos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
+        txtParte_Entera1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtParte_Entera1ActionPerformed(evt);
+            }
+        });
         txtParte_Entera1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtParte_Entera1KeyTyped(evt);
@@ -71,6 +77,11 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel1.add(txtParte_Entera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 30, 40));
 
+        txtNumerador1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumerador1ActionPerformed(evt);
+            }
+        });
         txtNumerador1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumerador1KeyTyped(evt);
@@ -79,6 +90,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 50, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 90, 10));
 
+        txtDenominador1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDenominador1ActionPerformed(evt);
+            }
+        });
         txtDenominador1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDenominador1KeyTyped(evt);
@@ -91,6 +107,11 @@ public class Principal extends javax.swing.JFrame {
         cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " + ", " -", " *", "/" }));
         jPanel1.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
+        txtParte_Entera2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtParte_Entera2ActionPerformed(evt);
+            }
+        });
         txtParte_Entera2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtParte_Entera2KeyTyped(evt);
@@ -98,6 +119,11 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel1.add(txtParte_Entera2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 30, 40));
 
+        txtNumerador2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumerador2ActionPerformed(evt);
+            }
+        });
         txtNumerador2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumerador2KeyTyped(evt);
@@ -106,6 +132,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 50, -1));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, 10));
 
+        txtDenominador2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDenominador2ActionPerformed(evt);
+            }
+        });
         txtDenominador2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDenominador2KeyTyped(evt);
@@ -277,6 +308,36 @@ public class Principal extends javax.swing.JFrame {
               getToolkit().beep(); 
               evt.consume();}
     }//GEN-LAST:event_txtDenominador2KeyTyped
+
+    private void txtParte_Entera1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParte_Entera1ActionPerformed
+        evt.setSource((char) KeyEvent.VK_CLEAR);
+        txtNumerador1.requestFocus();
+    }//GEN-LAST:event_txtParte_Entera1ActionPerformed
+
+    private void txtNumerador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumerador1ActionPerformed
+       evt.setSource((char) KeyEvent.VK_CLEAR);
+        txtDenominador1.requestFocus();
+    }//GEN-LAST:event_txtNumerador1ActionPerformed
+
+    private void txtDenominador1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDenominador1ActionPerformed
+        evt.setSource((char) KeyEvent.VK_CLEAR);
+        txtParte_Entera2.requestFocus();
+    }//GEN-LAST:event_txtDenominador1ActionPerformed
+
+    private void txtParte_Entera2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParte_Entera2ActionPerformed
+        evt.setSource((char) KeyEvent.VK_CLEAR);
+        txtNumerador2.requestFocus();
+    }//GEN-LAST:event_txtParte_Entera2ActionPerformed
+
+    private void txtNumerador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumerador2ActionPerformed
+        evt.setSource((char) KeyEvent.VK_CLEAR);
+        txtDenominador2.requestFocus();
+    }//GEN-LAST:event_txtNumerador2ActionPerformed
+
+    private void txtDenominador2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDenominador2ActionPerformed
+       evt.setSource((char) KeyEvent.VK_CLEAR);
+        cmbOperacion.requestFocus();
+    }//GEN-LAST:event_txtDenominador2ActionPerformed
 
     /**
      * @param args the command line arguments
