@@ -19,6 +19,10 @@ public class NumeroMixto {
         this.Numerador=numerador;
         this.Denominador=denominador;
     }
+    public NumeroMixto(int numerador,int denominador){
+        this.Numerador=numerador;
+        this.Denominador=denominador;
+    }
 
     public int getParte_Entera() {
         return Parte_Entera;
@@ -78,5 +82,28 @@ public class NumeroMixto {
         mx= new NumeroMixto(parte_entera, num, den);
         return mx;
     }
-    
+    public NumeroMixto Dividir(NumeroMixto mx2){
+        //Convertimos  A Fraccionario Dividimos y convertimos a mixto
+        NumeroMixto mx;
+        int num_fraccion1,den_fraccion1,num_franccion2,den_fraccion2,num_fraccion_Resul,den_fraccion_resul,parte_entera,num,den;
+        num_fraccion1=this.Parte_Entera * this.Denominador + this.Numerador;
+        den_fraccion1=this.Denominador;
+        num_franccion2=mx2.Parte_Entera * mx2.Denominador + mx2.Numerador;
+        den_fraccion2=mx2.Denominador;
+        num_fraccion_Resul= num_fraccion1 * den_fraccion2;
+        den_fraccion_resul= den_fraccion1 * num_franccion2;
+        parte_entera= num_fraccion_Resul / den_fraccion_resul;
+        num= num_fraccion_Resul % den_fraccion_resul;
+        den=den_fraccion_resul;
+        mx= new NumeroMixto(parte_entera, num, den);
+        return mx;
+    }
+    public NumeroMixto Convertir(NumeroMixto mx1){
+        NumeroMixto mx;
+        int num,den;
+        num= this.Parte_Entera * this.Denominador + this.Numerador;
+        den=this.Denominador;
+        mx = new NumeroMixto(num,den);
+        return mx;
+    }
 }

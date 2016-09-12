@@ -62,18 +62,18 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Operaciones Con Numeros Mixtos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
         jPanel1.add(txtParte_Entera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 30, 40));
-        jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 30, -1));
+        jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 50, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 90, 10));
-        jPanel1.add(txtDenominador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 30, -1));
+        jPanel1.add(txtDenominador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 50, -1));
 
         cmbOperacion.setBackground(new java.awt.Color(0, 0, 0));
         cmbOperacion.setForeground(new java.awt.Color(102, 255, 255));
         cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " + ", " -", " *", "/" }));
         jPanel1.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
         jPanel1.add(txtParte_Entera2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 30, 40));
-        jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 30, -1));
+        jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 50, -1));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, 10));
-        jPanel1.add(txtDenominador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 30, -1));
+        jPanel1.add(txtDenominador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 50, -1));
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 51, 0));
@@ -84,11 +84,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(txtParte_Entera3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 30, 40));
 
         txtNumerador3.setEditable(false);
-        jPanel1.add(txtNumerador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 30, -1));
+        jPanel1.add(txtNumerador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 50, -1));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 90, 10));
 
         txtDenominador3.setEditable(false);
-        jPanel1.add(txtDenominador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 30, -1));
+        jPanel1.add(txtDenominador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 50, -1));
 
         cmdCalcular.setBackground(new java.awt.Color(0, 0, 0));
         cmdCalcular.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -111,14 +111,19 @@ public class Principal extends javax.swing.JFrame {
         cmdConvertir.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmdConvertir.setForeground(new java.awt.Color(153, 255, 255));
         cmdConvertir.setText("Convertir A Fraccionario");
+        cmdConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdConvertirActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdConvertir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
 
         txtNumeradorFraccion.setEditable(false);
-        jPanel1.add(txtNumeradorFraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 30, -1));
+        jPanel1.add(txtNumeradorFraccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 50, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 90, 10));
 
         txtDenominadorFranccion.setEditable(false);
-        jPanel1.add(txtDenominadorFranccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 30, -1));
+        jPanel1.add(txtDenominadorFranccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 50, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,6 +165,9 @@ public class Principal extends javax.swing.JFrame {
         case 2 :
             mx3=mx1.Multiplicar(mx2);
             break;
+        case 3 :
+            mx3=mx1.Dividir(mx2);
+            break;
     }
     txtParte_Entera3.setText(""+mx3.getParte_Entera());
     txtNumerador3.setText(""+mx3.getNumerador());
@@ -169,6 +177,18 @@ public class Principal extends javax.swing.JFrame {
     
     
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
+     int parte_entera,num_fraccion,den_Fraccion;
+     NumeroMixto mx1,f;
+     parte_entera=Integer.parseInt(txtParte_Entera3.getText());
+     num_fraccion=Integer.parseInt(txtNumerador3.getText());
+     den_Fraccion=Integer.parseInt(txtDenominador3.getText());
+     mx1= new NumeroMixto(parte_entera,num_fraccion, den_Fraccion);
+     f=mx1.Convertir(mx1);
+     txtNumeradorFraccion.setText(""+f.getNumerador());
+     txtDenominadorFranccion.setText(""+f.getDenominador());
+    }//GEN-LAST:event_cmdConvertirActionPerformed
 
     /**
      * @param args the command line arguments
