@@ -136,19 +136,19 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
-    int op,parte_entera1,num1,dem1,parte_entera2,num2,dem2;
+    int op,parte_entera1,num1,den1,parte_entera2,num2,den2;
     NumeroMixto mx1,mx2,mx3=null;
     
     op=cmbOperacion.getSelectedIndex();
     parte_entera1= Integer.parseInt(txtParte_Entera1.getText());
     num1=Integer.parseInt(txtNumerador1.getText());
-    dem1=Integer.parseInt(txtDenominador1.getText());
+    den1=Integer.parseInt(txtDenominador1.getText());
     parte_entera2=Integer.parseInt(txtParte_Entera2.getText());
     num2=Integer.parseInt(txtNumerador2.getText());
-    dem2=Integer.parseInt(txtDenominador2.getText());
+    den2=Integer.parseInt(txtDenominador2.getText());
     
-    mx1= new NumeroMixto(parte_entera1, num1, dem1);
-    mx2= new NumeroMixto(parte_entera2, num2, dem2);
+    mx1= new NumeroMixto(parte_entera1, num1, den1);
+    mx2= new NumeroMixto(parte_entera2, num2, den2);
     
     switch (op){
         case 0:
@@ -157,7 +157,9 @@ public class Principal extends javax.swing.JFrame {
         case 1:
             mx3=mx1.Restar(mx2);
             break;
-            
+        case 2 :
+            mx3=mx1.Multiplicar(mx2);
+            break;
     }
     txtParte_Entera3.setText(""+mx3.getParte_Entera());
     txtNumerador3.setText(""+mx3.getNumerador());
