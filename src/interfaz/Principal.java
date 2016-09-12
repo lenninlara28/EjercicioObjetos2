@@ -154,6 +154,10 @@ public class Principal extends javax.swing.JFrame {
         case 0:
             mx3= mx1.Sumar(mx2);
         break;
+        case 1:
+            mx3=mx1.Restar(mx2);
+            break;
+            
     }
     txtParte_Entera3.setText(""+mx3.getParte_Entera());
     txtNumerador3.setText(""+mx3.getNumerador());

@@ -52,6 +52,15 @@ public class NumeroMixto {
         dem= this.Denominador * mx2.Denominador;
         mx=new  NumeroMixto(parte_entera, num, dem);
         return mx;
+    }
+    public NumeroMixto Restar (NumeroMixto mx2){
+        NumeroMixto mx;
+        int parte_entera,num,dem;
+        parte_entera= this.Parte_Entera - mx2.Parte_Entera;
+        num= this.Numerador * mx2.Denominador - this.Denominador * mx2.Numerador;
+        dem= this.Denominador * mx2.Denominador;
+        mx=new  NumeroMixto(parte_entera, num, dem);
+        return mx;
     } 
     
 }
