@@ -21,6 +21,7 @@ public class NumeroMixto {
         if (denominador==0){
             throw new DenominadorCeroException();
         }
+        
     }
     public NumeroMixto(int numerador,int denominador)throws DenominadorCeroException{
         this.Numerador=numerador;

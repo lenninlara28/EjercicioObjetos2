@@ -63,18 +63,54 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 204, 255));
         jLabel1.setText("Operaciones Con Numeros Mixtos");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+
+        txtParte_Entera1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtParte_Entera1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtParte_Entera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 30, 40));
+
+        txtNumerador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumerador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 50, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 90, 10));
+
+        txtDenominador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador1KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDenominador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 50, -1));
 
         cmbOperacion.setBackground(new java.awt.Color(0, 0, 0));
         cmbOperacion.setForeground(new java.awt.Color(102, 255, 255));
         cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " + ", " -", " *", "/" }));
         jPanel1.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+
+        txtParte_Entera2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtParte_Entera2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtParte_Entera2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 30, 40));
+
+        txtNumerador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumerador2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumerador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 50, -1));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, 10));
+
+        txtDenominador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDenominador2KeyTyped(evt);
+            }
+        });
         jPanel1.add(txtDenominador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 50, -1));
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
@@ -145,7 +181,12 @@ public class Principal extends javax.swing.JFrame {
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
     int op,parte_entera1,num1,den1,parte_entera2,num2,den2;
     NumeroMixto mx1,mx2,mx3=null;
-    
+    if(txtNumerador1.getText().trim().isEmpty()|| txtDenominador1.getText().trim().isEmpty()
+            || txtParte_Entera1.getText().trim().isEmpty()||txtParte_Entera2.getText().trim().isEmpty()
+            ||txtNumerador2.getText().trim().isEmpty()||txtDenominador2.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"No Se Aceptan Espacios En Blanco","Error",JOptionPane.ERROR_MESSAGE);
+            txtParte_Entera1.requestFocusInWindow();
+    }else{
     op=cmbOperacion.getSelectedIndex();
     parte_entera1= Integer.parseInt(txtParte_Entera1.getText());
     num1=Integer.parseInt(txtNumerador1.getText());
@@ -177,6 +218,7 @@ public class Principal extends javax.swing.JFrame {
     }catch(DenominadorCeroException e){
             JOptionPane.showMessageDialog(null, e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
     }//GEN-LAST:event_cmdCalcularActionPerformed
     private void cmdConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConvertirActionPerformed
      int parte_entera,num_fraccion,den_Fraccion;
@@ -193,6 +235,48 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cmdConvertirActionPerformed
+
+    private void txtParte_Entera1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtParte_Entera1KeyTyped
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtParte_Entera1KeyTyped
+
+    private void txtNumerador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador1KeyTyped
+       char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtNumerador1KeyTyped
+
+    private void txtDenominador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador1KeyTyped
+      char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtDenominador1KeyTyped
+
+    private void txtParte_Entera2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtParte_Entera2KeyTyped
+       char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtParte_Entera2KeyTyped
+
+    private void txtNumerador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerador2KeyTyped
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtNumerador2KeyTyped
+
+    private void txtDenominador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDenominador2KeyTyped
+        char c=evt.getKeyChar(); 
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+              evt.consume();}
+    }//GEN-LAST:event_txtDenominador2KeyTyped
 
     /**
      * @param args the command line arguments
