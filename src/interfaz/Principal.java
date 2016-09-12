@@ -234,6 +234,7 @@ public class Principal extends javax.swing.JFrame {
     mx1= new NumeroMixto(parte_entera1, num1, den1);
     mx2= new NumeroMixto(parte_entera2, num2, den2);
     
+    
     switch (op){
         case 0:
             mx3= mx1.Sumar(mx2);
