@@ -174,6 +174,11 @@ public class Principal extends javax.swing.JFrame {
         cmdBorrar.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         cmdBorrar.setForeground(new java.awt.Color(153, 255, 255));
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
         cmdConvertir.setBackground(new java.awt.Color(0, 0, 0));
@@ -338,6 +343,22 @@ public class Principal extends javax.swing.JFrame {
        evt.setSource((char) KeyEvent.VK_CLEAR);
         cmbOperacion.requestFocus();
     }//GEN-LAST:event_txtDenominador2ActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+       txtParte_Entera1.setText("");
+       txtParte_Entera2.setText("");
+       txtParte_Entera3.setText("");
+       txtNumerador1.setText("");
+       txtNumerador2.setText("");
+       txtNumerador3.setText("");
+       txtDenominador1.setText("");
+       txtDenominador2.setText("");
+       txtDenominador3.setText("");
+       txtNumeradorFraccion.setText("");
+       txtDenominadorFranccion.setText("");
+       cmbOperacion.setSelectedIndex(0);
+       txtParte_Entera1.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
